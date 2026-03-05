@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Blog Layout</title>
+
+<style>
+
+/* Blog container */
+.blog-post{
+    width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+}
+
+/* First line bold */
+.blog-post p::first-line{
+    font-weight: bold;
+}
+
+/* First letter large and colored */
+.blog-post p::first-letter{
+    font-size: 40px;
+    color: darkred;
+    font-weight: bold;
+}
+
+/* Quote block */
+blockquote{
+    margin: 20px 0;
+    padding: 10px;
+    background: #f5f5f5;
+    border-left: 5px solid gray;
+}
+
+/* Add opening quote automatically */
+blockquote::before{
+    content: "“";
+    font-size: 30px;
+    color: gray;
+}
+
+/* Anchor pseudo-classes */
+a:link{
+    color: blue;
+}
+
+a:visited{
+    color: purple;
+}
+
+a:hover{
+    color: red;
+    text-decoration: underline;
+}
+
+/* h4 side by side */
+h4{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Style second h4 using adjacent sibling selector */
+h4 + h4{
+    color: green;
+    font-style: italic;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="blog-post">
+
+<h1>My First Blog Post</h1>
+<p>Author: John Doe</p>
+
+<p>
+Web development is an exciting field that combines creativity and logic.
+Learning HTML and CSS allows you to build beautiful and structured
+web pages for the internet. If you want to learn more, visit
+<a href="#">this guide</a>.
+</p>
+
+<blockquote>
+Good design is as little design as possible.
+</blockquote>
+
+<h4>Web Design</h4>
+<h4>CSS Tricks</h4>
+
+</div>
+
+</body>
+</html>
