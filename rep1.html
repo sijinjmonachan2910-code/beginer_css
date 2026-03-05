@@ -1,162 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Continuous Quantum Field</title>
+<title>Simple Web Page</title>
+
 <style>
-body{margin:0;background:#000;overflow:hidden;}
-canvas{display:block;}
+
+/* Section styling using descendant combinator */
+section p::first-line{
+    font-weight: bold;
+}
+
+/* First letter styling */
+section p::first-letter{
+    color: red;
+    font-size: 30px;
+}
+
+/* Adjacent sibling selector to color second h3 */
+h3 + h3{
+    color: green;
+}
+
+/* Link styles */
+a:link{
+    color: blue;
+}
+
+a:visited{
+    color: purple;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/* First link in list */
+div ul li:first-child a{
+    color: red;
+}
+
 </style>
 </head>
+
 <body>
-<canvas id="c"></canvas>
-<script>
 
-const canvas=document.getElementById("c");
-const ctx=canvas.getContext("2d");
+<section>
+<h2>About Web Development</h2>
 
-const N=200;
-const scale=3;
-canvas.width=N*scale;
-canvas.height=N*scale;
+<p>
+Web development allows people to build websites and applications
+that run on the internet. It combines creativity and technical skills.
+</p>
 
-const dx=1;
-const dt=0.02;
+<p>
+Learning HTML and CSS is the first step toward becoming a web developer.
+These technologies help structure and style web pages.
+</p>
+</section>
 
-let Re=new Float32Array(N*N);
-let Im=new Float32Array(N*N);
-let V =new Float32Array(N*N);
+<div>
+<h3>Frontend</h3>
+<h3>Backend</h3>
 
-function idx(x,y){return y*N+x;}
+<ul>
+<li><a href="#">HTML Tutorial</a></li>
+<li><a href="#">CSS Guide</a></li>
+<li><a href="#">JavaScript Basics</a></li>
+</ul>
+</div>
 
-let mouse={x:N/2,y:N/2};
-
-canvas.addEventListener("mousemove",e=>{
-    let rect=canvas.getBoundingClientRect();
-    mouse.x=Math.floor((e.clientX-rect.left)/scale);
-    mouse.y=Math.floor((e.clientY-rect.top)/scale);
-});
-
-function initWave(){
-    let x0=40,y0=N/2,kx=2.0,sigma=10;
-    for(let y=0;y<N;y++){
-        for(let x=0;x<N;x++){
-            let dx0=x-x0;
-            let dy0=y-y0;
-            let g=5*Math.exp(-(dx0*dx0+dy0*dy0)/(2*sigma*sigma)); // boosted amplitude
-            let phase=kx*dx0;
-            Re[idx(x,y)]=g*Math.cos(phase);
-            Im[idx(x,y)]=g*Math.sin(phase);
-        }
-    }
-}
-
-function buildPotential(){
-    for(let i=0;i<N*N;i++)V[i]=0;
-
-    for(let y=0;y<N;y++){
-        for(let x=0;x<N;x++){
-            let dxm=x-mouse.x;
-            let dym=y-mouse.y;
-            let r2=dxm*dxm+dym*dym;
-            V[idx(x,y)]=-80*Math.exp(-r2/150);
-        }
-    }
-}
-
-function lap(arr,x,y){
-    let xm=(x-1+N)%N;
-    let xp=(x+1)%N;
-    let ym=(y-1+N)%N;
-    let yp=(y+1)%N;
-
-    return(
-        arr[idx(xp,y)]+
-        arr[idx(xm,y)]+
-        arr[idx(x,yp)]+
-        arr[idx(x,ym)]-
-        4*arr[idx(x,y)]
-    )/(dx*dx);
-}
-
-function kineticStep(){
-    let nRe=new Float32Array(N*N);
-    let nIm=new Float32Array(N*N);
-
-    for(let y=0;y<N;y++){
-        for(let x=0;x<N;x++){
-            let i=idx(x,y);
-            let lapRe=lap(Re,x,y);
-            let lapIm=lap(Im,x,y);
-
-            nRe[i]=Re[i]+dt*(-0.5*lapIm);
-            nIm[i]=Im[i]+dt*( 0.5*lapRe);
-        }
-    }
-    Re=nRe;
-    Im=nIm;
-}
-
-function potentialStep(){
-    for(let i=0;i<N*N;i++){
-        let phase=V[i]*dt;
-        let cosP=Math.cos(phase);
-        let sinP=Math.sin(phase);
-
-        let r=Re[i];
-        let im=Im[i];
-
-        Re[i]=r*cosP-im*sinP;
-        Im[i]=r*sinP+im*cosP;
-    }
-}
-
-function draw(){
-
-    let img=ctx.createImageData(N,N);
-    let data=img.data;
-
-    let maxVal=0;
-
-    // find max for auto exposure
-    for(let i=0;i<N*N;i++){
-        let prob=Re[i]*Re[i]+Im[i]*Im[i];
-        if(prob>maxVal)maxVal=prob;
-    }
-
-    let exposure=255/(maxVal||1);
-
-    for(let i=0;i<N*N;i++){
-        let prob=Re[i]*Re[i]+Im[i]*Im[i];
-        let b=Math.min(prob*exposure,255);
-
-        let p=i*4;
-        data[p]=b;
-        data[p+1]=b;
-        data[p+2]=b;
-        data[p+3]=255;
-    }
-
-    ctx.putImageData(img,0,0);
-    ctx.imageSmoothingEnabled=false;
-    ctx.drawImage(canvas,0,0,N,N,0,0,canvas.width,canvas.height);
-}
-
-function step(){
-    buildPotential();
-    kineticStep();
-    potentialStep();
-}
-
-function animate(){
-    step();
-    draw();
-    requestAnimationFrame(animate);
-}
-
-initWave();
-animate();
-
-</script>
 </body>
 </html>
