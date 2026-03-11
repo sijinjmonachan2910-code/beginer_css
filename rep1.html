@@ -1,73 +1,228 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Simple Web Page</title>
+<title>CSS Exam</title>
+
+<!-- Responsive meta tag -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
-/* Section styling using descendant combinator */
-section p::first-line{
-    font-weight: bold;
+body{
+    margin:0;
+    font-family:Arial;
 }
 
-/* First letter styling */
-section p::first-letter{
-    color: red;
-    font-size: 30px;
+/* ==================================================
+   QUESTION 1 : TABLE STYLING
+================================================== */
+
+table{
+    border-collapse:collapse;
+    width:60%;
+    margin:40px;
 }
 
-/* Adjacent sibling selector to color second h3 */
-h3 + h3{
-    color: green;
+th, td{
+    border:1px solid black;
+    padding:10px;
+    text-align:left;
 }
 
-/* Link styles */
-a:link{
-    color: blue;
+/* grey background + white text */
+
+td{
+    background-color:grey;
+    color:white;
 }
 
-a:visited{
-    color: purple;
+
+/* ==================================================
+   QUESTION 2 : LINK LOOKS LIKE BUTTON
+================================================== */
+
+.buttonLink{
+    text-decoration:none;
+    background-color:#ff4d4d;
+    color:white;
+    padding:10px 20px;
+    border-radius:5px;
+    display:inline-block;
+    margin:40px;
 }
 
-a:hover{
-    text-decoration: underline;
+.buttonLink:hover{
+    opacity:0.7;
 }
 
-/* First link in list */
-div ul li:first-child a{
-    color: red;
+
+/* ==================================================
+   QUESTION 3 : RESPONSIVE LOGIN PAGE
+   HALF SCREEN FORM + HALF SCREEN GRADIENT
+================================================== */
+
+.loginPage{
+    display:flex;
+    height:100vh;          /* full page height */
+}
+
+/* LEFT SIDE LOGIN FORM */
+
+.leftSide{
+    width:50%;
+    padding:60px;
+    box-sizing:border-box;
+}
+
+.leftSide h3{
+    margin-bottom:20px;
+}
+
+/* RIGHT SIDE FULL GRADIENT */
+
+.rightSide{
+    width:50%;
+    background:linear-gradient(to bottom right,#fbc2eb,#a6c1ee);
+}
+
+/* INPUT FIELDS */
+
+input[type="email"],
+input[type="password"]{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:15px;
+}
+
+/* LOGIN BUTTON */
+
+.loginBtn{
+    background:#ff6b6b;
+    color:white;
+    border:none;
+    padding:10px;
+    width:100%;
+}
+
+
+/* ==================================================
+   RESPONSIVE WEB DESIGN
+   MOBILE SCREEN
+================================================== */
+
+@media screen and (max-width:600px){
+
+.loginPage{
+    flex-direction:column;  /* stack layout */
+}
+
+.leftSide, .rightSide{
+    width:100%;
+}
+
+.rightSide{
+    height:250px;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<section>
-<h2>About Web Development</h2>
 
-<p>
-Web development allows people to build websites and applications
-that run on the internet. It combines creativity and technical skills.
-</p>
+<!-- =====================================
+     QUESTION 1 : TABLE
+===================================== -->
 
-<p>
-Learning HTML and CSS is the first step toward becoming a web developer.
-These technologies help structure and style web pages.
-</p>
-</section>
+<h2 style="margin-left:40px">Product Table</h2>
 
-<div>
-<h3>Frontend</h3>
-<h3>Backend</h3>
+<table>
 
-<ul>
-<li><a href="#">HTML Tutorial</a></li>
-<li><a href="#">CSS Guide</a></li>
-<li><a href="#">JavaScript Basics</a></li>
-</ul>
+<tr>
+<th>Id</th>
+<th>Product Name</th>
+<th>Product Price</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Mouse</td>
+<td>500</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Keyboard</td>
+<td>800</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Monitor</td>
+<td>7000</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>USB Cable</td>
+<td>150</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Headphones</td>
+<td>1200</td>
+</tr>
+
+</table>
+
+
+<!-- =====================================
+     QUESTION 2 : LINK AS BUTTON
+===================================== -->
+
+<a href="#" class="buttonLink">Click Me</a>
+
+
+<!-- =====================================
+     QUESTION 3 : RESPONSIVE LOGIN PAGE
+===================================== -->
+
+<div class="loginPage">
+
+<!-- LEFT HALF LOGIN FORM -->
+
+<div class="leftSide">
+
+<h3>Login Form</h3>
+
+<label>Email :</label>
+<input type="email">
+
+<label>Password :</label>
+<input type="password">
+
+<label>
+<input type="checkbox"> Remember Me
+</label>
+
+<br><br>
+
+<button class="loginBtn">Login</button>
+
 </div>
+
+
+<!-- RIGHT HALF GRADIENT FULL PAGE -->
+
+<div class="rightSide"></div>
+
+</div>
+
 
 </body>
 </html>

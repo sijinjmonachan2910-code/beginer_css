@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    padding-block: 0;
+    font-family: Arial, sans-serif;
+}
+label {
+    font-style: italic;
+    margin-block: 16px;
+}
+.labels {
+    font-style: normal;
+    font-weight: bold;
+}
+
+h2 {
+    color: orangered;
+    margin-block: 50px;
+}
+
+input[type="email"], 
+input[type="password"] {
+    padding: 8px;
+    width: 300px;
+    margin-block: 16px;
+}
+
+button {
+    margin-block: 16px;
+    padding: 8px 16px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    width: 300px;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+section {
+    height: 100%;
+    margin-inline: auto;
+    background-color: white;
+    padding-inline: 16px;
+}
+
+div {
+    width: fit-content;
+    margin: auto;
+    padding: 10px;
+}
+
+@media screen and (orientation: landscape){
+    section {
+        float: right;
+        width: 50%;
+    }
+    body {
+        background-image: linear-gradient(hsl(267, 20%, 68%), rgb(255, 211, 129)) ;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <h2>Login Form</h2>
+            <form action="#" method="post">
+                <label class="labels" for="emailId">Email:</label><br>
+                <input type="email" id="emailId" name="emailId" required><br>
+                <label class="labels" for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br>
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe"> Remember me</label><br>
+                <button type="submit">Login</button>
+            </form>
+        </div> 
+        
+    </section>
+</body>
+</html>
