@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>travel website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      min-height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+  <!-- Carousel -->
+  <div id="travelCarousel" class="carousel slide shadow-lg rounded overflow-hidden"
+       data-bs-ride="carousel"
+       data-bs-interval="3000">
+
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <img src="https://www.balispirit.com/assets/images/where%20is%20bali%20~%20islands%20of%20Indonesia_2.jpg"
+             class="d-block w-100 object-fit-cover"
+             style="height: 60vh;" alt="Beach">
+
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded p-3">
+          <h3>Maldives Beach</h3>
+          <p>Crystal clear water and luxury resorts</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <img src="https://www.ericsbasecamp.net/trips/Serratus-Alpha/Serratus-Alpha11.jpg"
+             class="d-block w-100 object-fit-cover"
+             style="height: 60vh;" alt="Mountains">
+
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded p-3">
+          <h3>Swiss Alps</h3>
+          <p>Adventure and breathtaking views</p>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingModal">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/071/604/754/small/a-city-at-night-with-many-tall-buildings-photo.jpg"
+             class="d-block w-100 object-fit-cover"
+             style="height: 60vh;" alt="City">
+
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded p-3">
+          <h3>New York City</h3>
+          <p>Experience the vibrant city life</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#bookingModal">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#travelCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="bookingModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Travel Booking Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p><strong>Book your dream destination now!</strong></p>
+        <ul>
+          <li>🌍 Top global destinations</li>
+          <li>💰 Affordable packages</li>
+          <li>✈️ Flights + Hotels included</li>
+          <li>📞 24/7 support</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-primary">Proceed</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Info Icon (No JS Tooltip) -->
+<div class="position-fixed bottom-0 end-0 p-3">
+  <i class="bi bi-info-circle-fill fs-3 text-dark"
+     title="Click 'Book Now' to explore travel packages and offers!">
+  </i>
+</div>
+
+<!-- Bootstrap JS (required for carousel & modal, no custom JS added) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
