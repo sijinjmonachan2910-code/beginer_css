@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistics Widget</title>
+</head>
+<body>
+
+<h2>Statistics Widget</h2>
+
+<p id="random"></p>
+<p id="score"></p>
+<p id="difference"></p>
+<p id="sqrt"></p>
+<p id="pi"></p>
+<p id="implicit"></p>
+
+<script>
+// Step 1: Generate random whole number (1–100)
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+// Step 2: Simulate user score as string
+let userScoreStr = "75";
+
+// Step 3: Convert string to number
+let userScore = Number(userScoreStr);
+
+// Step 4: Difference
+let difference = randomNumber - userScore;
+
+// Step 5: Rounded square root
+let sqrtRounded = Math.round(Math.sqrt(userScore));
+
+// Step 6: PI value
+let piValue = Math.PI;
+
+// Step 7: Implicit conversion
+let implicitResult = "50" * 2;
+
+// Display results
+document.getElementById("random").innerHTML = "Random Number: " + randomNumber;
+document.getElementById("score").innerHTML = "User Score: " + userScore;
+document.getElementById("difference").innerHTML = "Difference: " + difference;
+document.getElementById("sqrt").innerHTML = "Rounded Square Root: " + sqrtRounded;
+document.getElementById("pi").innerHTML = "Value of PI: " + piValue;
+document.getElementById("implicit").innerHTML = "Implicit Conversion (\"50\" * 2): " + implicitResult;
+
+</script>
+
+</body>
+</html>
