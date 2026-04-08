@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Store Sales Calculator</title>
+</head>
+<body>
+
+<h2>Store Sales Calculation</h2>
+
+<p id="result1"></p>
+<p id="result2"></p>
+
+<script>
+// Step 1: Create variables
+let tshirtCount = 5;
+let tshirtPrice = 400;
+
+let capCount = 3;
+let capPrice = 150;
+
+// Step 2: Calculate total earnings
+let totalEarnings = (tshirtCount * tshirtPrice) + (capCount * capPrice);
+
+// Step 3: Display total earnings
+document.getElementById("result1").innerHTML = 
+    "Total earnings: ₹" + totalEarnings;
+
+// Step 4: Change t-shirt price to ₹450
+tshirtPrice = 450;
+
+// Recalculate total
+totalEarnings = (tshirtCount * tshirtPrice) + (capCount * capPrice);
+
+// Step 5: Display updated total
+document.getElementById("result2").innerHTML = 
+    "Updated total earnings: ₹" + totalEarnings;
+
+</script>
+
+</body>
+</html>
