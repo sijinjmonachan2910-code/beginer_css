@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library System</title>
+</head>
+<body>
+
+<h2>Library Book Summary</h2>
+<p id="output"></p>
+
+<script>
+// Step 1: Create the book object
+let book = {
+    title: "The Alchemist",
+    author: "Paulo Coelho",
+    year: 1988,
+
+    // Step 2: Add method inside object
+    getSummary: function() {
+        return "The book '" + this.title + "' was written by " 
+               + this.author + " in " + this.year + ".";
+    }
+};
+
+// Step 3: Create function to print summary
+function printBookSummary(bookObj) {
+    document.getElementById("output").innerHTML = bookObj.getSummary();
+}
+
+// Step 4: Call the function
+printBookSummary(book);
+</script>
+
+</body>
+</html>
