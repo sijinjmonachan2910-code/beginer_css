@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Processor</title>
+</head>
+<body>
+
+<h2>Feedback Processing Result</h2>
+
+<p id="cleaned"></p>
+<p id="position"></p>
+<p id="array"></p>
+
+<script>
+// Original feedback
+var feedback = "   I loved the FOOD and the service!   ";
+
+// Step 1: Remove extra spaces
+feedback = feedback.trim();
+
+// Step 2: Convert to lowercase
+feedback = feedback.toLowerCase();
+
+// Step 3: Replace "food" with "ambience"
+feedback = feedback.replace("food", "ambience");
+
+// Step 4: Find position of "service"
+var position = feedback.indexOf("service");
+
+// Step 5: Convert to array of words
+var wordsArray = feedback.split(" ");
+
+// Display results on webpage
+document.getElementById("cleaned").innerHTML = 
+    "Cleaned Feedback: " + feedback;
+
+document.getElementById("position").innerHTML = 
+    "Position of 'service': " + position;
+
+document.getElementById("array").innerHTML = 
+    "Words Array: [" + wordsArray.join(", ") + "]";
+</script>
+
+</body>
+</html>
