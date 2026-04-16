@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comment Filter</title>
+</head>
+<body>
+
+<h2>User Comment System</h2>
+
+<textarea id="comment" rows="4" cols="50" placeholder="Enter your comment here..."></textarea>
+<br><br>
+
+<button onclick="processComment()">Check Comment</button>
+
+<h3 id="found"></h3>
+<h3 id="result"></h3>
+ 
+<script>
+function processComment() {
+    let comment = document.getElementById("comment").value;
+
+    // Check if digits exist
+    let hasNumber = /\d/.test(comment);
+
+    // Replace all numbers with "NUMBER"
+    let updatedComment = comment.replace(/\d+/g, "NUMBER");
+
+    // Display results
+    document.getElementById("found").innerText = 
+        "Number found: " + hasNumber;
+
+    document.getElementById("result").innerText = 
+        "Updated comment: " + updatedComment;
+}
+</script>
+
+</body>
+</html>
