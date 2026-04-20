@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book System</title>
+</head>
+<body>
+
+<script>
+class Book {
+    constructor(title, author, price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    // Getter methods
+    getTitle() {
+        return this.title;
+    }
+
+    getAuthor() {
+        return this.author;
+    }
+
+    // Setter method with validation
+    setPrice(newPrice) {
+        if (typeof newPrice === "number" && newPrice > 0) {
+            this.price = newPrice;
+            console.log("Price updated successfully.");
+        } else {
+            console.log("Invalid price. Must be a number greater than 0.");
+        }
+    }
+
+    // Method to display details
+    display() {
+        console.log("Title: " + this.title);
+        console.log("Author: " + this.author);
+        console.log("Price: " + this.price);
+    }
+}
+
+// Create object
+let book1 = new Book("Atomic Habits", "James Clear", 500);
+
+// Try updating with valid value
+book1.setPrice(650);
+
+// Try updating with invalid values
+book1.setPrice(-100);   // invalid
+book1.setPrice("abc");  // invalid
+
+// Print final details
+book1.display();
+</script>
+
+</body>
+</html>
